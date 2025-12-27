@@ -1,0 +1,448 @@
+/* register2.css - 注册第二步页面样式（register_2.html）*/
+
+/* 定义CSS变量 */
+:root{
+    --bg: #fafafa;         /* 背景色：浅灰色 */
+    --muted: #9ba6ad;      /* 次要文字颜色：中灰色 */
+    --accent: #e2211c;     /* 强调色/主题色：京东红 */
+}
+
+/* 页面基础样式 */
+body{
+    background: var(--bg);         /* 使用变量设置背景 */
+    margin: 0;                     /* 清除默认外边距 */
+    color: #222;                   /* 主文字颜色：深灰色 */
+    font-family: "Microsoft YaHei", Arial, sans-serif; /* 字体设置 */
+}
+
+/* 头部样式 */
+.header{
+    padding: 20px 0;                /* 上下内边距 */
+    border-bottom: 1px solid #eee;  /* 底部边框线 */
+    background: #fff;                /* 白色背景 */
+}
+.header .wrap{
+    max-width: 1200px;              /* 最大宽度 */
+    margin: 0 auto;                 /* 水平居中 */
+    display: flex;                  /* 弹性布局 */
+    align-items: center;            /* 垂直居中 */
+    padding: 0 20px;                /* 左右内边距 */
+}
+.header .logo img{
+    height: 46px;                   /* Logo高度 */
+}
+.header .advise{
+    margin-left: auto;              /* 靠右对齐 */
+}
+/* 右侧帮助/登录链接始终显示为红色 */
+.header .wrap .advise .help-link{
+    color: var(--accent);           /* 使用主题红色 */
+    text-decoration: none;          /* 去掉下划线 */
+    font-weight: 600;               /* 加粗 */
+}
+.header .wrap .advise .help-link:hover{
+    color: var(--accent);           /* 鼠标悬停保持红色 */
+}
+
+/* 注册页面主体区域 */
+.register-page{
+    padding: 50px 0;                /* 上下内边距 */
+}
+.register-wrap{
+    max-width: 1000px;              /* 最大宽度 */
+    margin: 0 auto;                 /* 水平居中 */
+}
+
+/* 步骤指示器样式 */
+.steps{
+    display: flex;                  /* 弹性布局 */
+    align-items: center;            /* 垂直居中 */
+    justify-content: center;        /* 水平居中 */
+    gap: 18px;                      /* 步骤间间距 */
+    margin-bottom: 36px;            /* 底部外边距 */
+}
+.step{
+    display: flex;                  /* 弹性布局 */
+    flex-direction: column;         /* 垂直方向排列 */
+    align-items: center;            /* 水平居中 */
+    color: var(--muted);            /* 次要文字颜色 */
+    font-size: 13px;                /* 字体大小 */
+}
+.step span{
+    display: inline-block;          /* 行内块元素 */
+    width: 34px;                    /* 圆形宽度 */
+    height: 34px;                   /* 圆形高度 */
+    border-radius: 50%;             /* 圆形 */
+    border: 2px solid #e6e6e6;      /* 边框 */
+    line-height: 30px;              /* 行高（垂直居中） */
+    text-align: center;             /* 文本居中 */
+    background: #fff;               /* 白色背景 */
+    color: #999;                    /* 文字颜色 */
+    font-weight: 700;               /* 加粗 */
+    font-size: 14px;                /* 字体大小 */
+}
+.step.done span{
+    background: #2fb02f;            /* 已完成：绿色背景 */
+    color: #fff;                    /* 白色文字 */
+    border-color: #2fb02f;          /* 绿色边框 */
+}
+.step.active span{
+    background: #2fb02f;            /* 当前步骤：绿色背景 */
+    color: #fff;                    /* 白色文字 */
+    border-color: #2fb02f;          /* 绿色边框 */
+}
+.step p{
+    margin: 8px 0 0;                /* 顶部外边距 */
+}
+.dots{
+    width: 160px;                   /* 宽度 */
+    height: 10px;                   /* 高度 */
+    /* 创建点状背景线 */
+    background-image: radial-gradient(#e6e6e6 0 3px, transparent 4px);
+    background-size: 14px 10px;      /* 点的尺寸和间距 */
+    background-repeat: repeat-x;     /* 水平重复 */
+}
+
+/* 中央表单区域 */
+.center-col{
+    max-width: 680px;               /* 最大宽度 */
+    margin: 0 auto;                 /* 水平居中 */
+}
+.reg-form{
+    background: transparent;        /* 透明背景 */
+    padding-top: 0;                 /* 无顶部内边距 */
+}
+.form-row{
+    display: flex;                  /* 弹性布局 */
+    align-items: center;            /* 垂直居中 */
+    margin-bottom: 18px;            /* 底部外边距 */
+}
+.form-row label{
+    width: 140px;                   /* 固定宽度 */
+    color: #666;                    /* 标签文字颜色 */
+    padding-left: 12px;             /* 左内边距 */
+}
+.form-row input{
+    flex: 1;                        /* 占据剩余空间 */
+    padding: 16px 14px;             /* 内边距 */
+    border: 1px solid #eee;         /* 边框 */
+    background: #fff;               /* 白色背景 */
+    border-radius: 2px;             /* 轻微圆角 */
+    font-size: 14px;                /* 字体大小 */
+}
+
+/* 邮箱验证码行样式 */
+.code-row .code-wrap{
+    display: flex;                  /* 弹性布局 */
+    gap: 10px;                      /* 元素间距 */
+    width: 100%;                    /* 100%宽度 */
+}
+.code-wrap input{
+    flex: 1;                        /* 输入框占据剩余空间 */
+}
+.btn-code{
+    min-width: 120px;               /* 最小宽度 */
+    padding: 12px;                  /* 内边距 */
+    border: 1px solid #e6e6e6;      /* 边框 */
+    background: #fff;               /* 白色背景 */
+    border-radius: 2px;             /* 圆角 */
+    cursor: pointer;                /* 鼠标手型 */
+}
+
+/* 提交按钮样式 */
+.btn-row{
+    display: block;                 /* 块级元素 */
+}
+.btn-submit{
+    display: block;                 /* 块级元素 */
+    width: 100%;                    /* 100%宽度 */
+    padding: 16px;                  /* 内边距 */
+    background: var(--accent);      /* 京东红背景 */
+    color: #fff;                    /* 白色文字 */
+    border: none;                   /* 无边框 */
+    border-radius: 2px;             /* 圆角 */
+    font-size: 18px;                /* 字体大小 */
+    cursor: pointer;                /* 鼠标手型 */
+}
+
+/* 页脚间距 */
+.site-footer{
+    background: var(--bg);          /* 背景色 */
+    padding: 28px 0 36px;           /* 上下内边距 */
+    border-top: 1px solid #eef0f2;  /* 顶部边框 */
+    margin-top: 40px;               /* 顶部外边距 */
+}
+.site-footer .footer-wrap{
+    max-width: 1200px;              /* 最大宽度 */
+    margin: 0 auto;                 /* 水平居中 */
+    text-align: center;             /* 文本居中 */
+    padding: 0 20px;                /* 左右内边距 */
+}
+.site-footer .footer-links{
+    display: block;                 /* 块级元素 */
+    color: var(--muted);            /* 次要文字颜色 */
+    font-size: 13px;                /* 字体大小 */
+}
+
+/* 响应式设计：屏幕宽度小于800px */
+@media (max-width: 800px){
+    .form-row{
+        flex-direction: column;     /* 垂直排列 */
+        align-items: stretch;       /* 拉伸子元素 */
+    }
+    .form-row label{
+        width: 100%;                /* 100%宽度 */
+        padding: 8px 12px;          /* 内边距 */
+    }
+    .code-wrap{
+        flex-direction: row;        /* 保持水平排列 */
+    }
+    .dots{
+        width: 100px;               /* 点状线宽度变小 */
+    }
+    .steps{
+        gap: 12px;                  /* 步骤间距变小 */
+    }
+}
+
+/* 验证码样式 */
+.captcha-row{
+    display: flex;                  /* 弹性布局 */
+    gap: 12px;                      /* 元素间距 */
+    align-items: center;            /* 垂直居中 */
+}
+.captcha-box{
+    display: flex;                  /* 弹性布局 */
+    align-items: center;            /* 垂直居中 */
+    gap: 8px;                       /* 元素间距 */
+}
+.captcha-box img{
+    height: 44px;                   /* 图片高度 */
+    border: 1px solid #e6e6e6;      /* 边框 */
+    border-radius: 2px;             /* 圆角 */
+}
+.captcha-box button{
+    padding: 8px 10px;              /* 按钮内边距 */
+}
+
+/* 响应式设计：验证码区域 */
+@media (max-width: 800px){
+    .captcha-row{
+        flex-direction: column;     /* 垂直排列 */
+        align-items: stretch;       /* 拉伸子元素 */
+    }
+    .captcha-box{
+        justify-content: flex-start; /* 左对齐 */
+    }
+    .captcha-box img{
+        height: 40px;               /* 图片高度变小 */
+    }
+}
+
+/* Canvas验证码样式 */
+.captcha-box canvas{
+    height: 44px;                   /* 高度 */
+    border: 1px solid #e6e6e6;      /* 边框 */
+    border-radius: 2px;             /* 圆角 */
+    display: block;                 /* 块级元素 */
+}
+.captcha-box canvas:focus{
+    outline: 2px solid rgba(0,0,0,0.06); /* 聚焦时的轮廓线 */
+}
+
+/* ========== 以下是小范围覆盖样式，确保表单居中与按钮样式更接近截图 ========== */
+
+/* 表单顶部间距 */
+.reg-form { 
+    padding-top: 30px; 
+}
+
+/* 注册表单字段样式 */
+.reg-field { 
+    display: flex;                           /* 弹性布局 */
+    align-items: center;                     /* 垂直居中 */
+    gap: 18px;                               /* 元素间距 */
+    background: #fff;                        /* 白色背景 */
+    border: 1px solid #e6e6e6;               /* 边框 */
+    padding: 14px 18px;                      /* 内边距 */
+    margin-bottom: 18px;                     /* 底部外边距 */
+    border-radius: 6px;                      /* 圆角 */
+    transition: background .15s ease, box-shadow .15s ease, border-color .15s ease; /* 过渡动画 */
+}
+.reg-field:hover { 
+    background: #fdfdfd;                     /* 悬停背景色 */
+}
+.reg-field:focus-within { 
+    border-color: var(--accent);             /* 聚焦时边框变红 */
+    box-shadow: 0 0 0 3px rgba(226,33,28,0.08); /* 红色发光效果 */
+}
+.reg-field label { 
+    width: 110px;                            /* 固定宽度 */
+    color: #555;                             /* 文字颜色 */
+    font-size: 14px;                         /* 字体大小 */
+}
+.reg-field input { 
+    flex: 1;                                 /* 占据剩余空间 */
+    border: none;                            /* 无边框 */
+    outline: none;                           /* 无轮廓 */
+    font-size: 14px;                         /* 字体大小 */
+    padding: 8px 6px;                        /* 内边距 */
+    background: transparent;                 /* 透明背景 */
+}
+
+/* 邮箱验证码行样式 */
+.email-row { 
+    display: flex;                           /* 弹性布局 */
+    gap: 10px;                               /* 元素间距 */
+}
+.email-row input { 
+    flex: 1;                                 /* 占据剩余空间 */
+}
+.code-btn { 
+    min-width: 120px;                        /* 最小宽度 */
+    padding: 10px 12px;                      /* 内边距 */
+    background: #fff;                        /* 白色背景 */
+    border: 1px solid #dcdcdc;               /* 边框 */
+    border-radius: 4px;                      /* 圆角 */
+    cursor: pointer;                         /* 鼠标手型 */
+    transition: background .15s ease, border-color .15s ease; /* 过渡动画 */
+}
+.code-btn:hover { 
+    background: #f7f7f7;                     /* 悬停背景色 */
+    border-color: #cfcfcf;                   /* 悬停边框色 */
+}
+
+/* 大提交按钮样式 */
+.submit-big { 
+    background: #e2211c;                     /* 京东红背景 */
+    color: #fff;                             /* 白色文字 */
+    font-size: 18px;                         /* 字体大小 */
+    padding: 16px 12px;                      /* 内边距 */
+    border: none;                            /* 无边框 */
+    border-radius: 6px;                      /* 圆角 */
+    cursor: pointer;                         /* 鼠标手型 */
+    display: block;                          /* 块级元素 */
+    width: 100%;                             /* 100%宽度 */
+    box-sizing: border-box;                  /* 盒模型 */
+    transition: background .15s ease;        /* 背景色过渡 */
+}
+.submit-big:hover { 
+    background: #d51c17;                     /* 悬停背景色（稍暗的红色） */
+}
+.submit-big:active { 
+    background: #c81813;                     /* 点击背景色（更暗的红色） */
+}
+.submit-big:disabled { 
+    background: #f0a6a3;                     /* 禁用背景色（浅红色） */
+    cursor: not-allowed;                     /* 禁用鼠标指针 */
+}
+
+/* 步骤指示器底部间距 */
+.steps { 
+    margin-bottom: 36px; 
+}
+
+/* 中央列样式 */
+.center-col { 
+    max-width: 680px;                        /* 最大宽度 */
+    margin: 0 auto;                          /* 水平居中 */
+    text-align: left;                        /* 文本左对齐 */
+}
+
+/* 显示/隐藏密码按钮（眼睛图标） */
+.eye-btn { 
+    min-width: 40px;                         /* 最小宽度 */
+    padding: 8px 10px;                       /* 内边距 */
+    background: #fff;                        /* 白色背景 */
+    border: 1px solid #dcdcdc;               /* 边框 */
+    border-radius: 4px;                      /* 圆角 */
+    cursor: pointer;                         /* 鼠标手型 */
+    line-height: 1;                          /* 行高 */
+    transition: background .15s ease, border-color .15s ease; /* 过渡动画 */
+    display: flex;                           /* 弹性布局 */
+    align-items: center;                     /* 垂直居中 */
+    justify-content: center;                 /* 水平居中 */
+}
+.eye-btn:hover { 
+    background: #f7f7f7;                     /* 悬停背景色 */
+    border-color: #cfcfcf;                   /* 悬停边框色 */
+}
+.eye-btn .eye-icon { 
+    width: 20px;                             /* 图标宽度 */
+    height: 20px;                            /* 图标高度 */
+    display: inline-block;                   /* 行内块元素 */
+    background-size: contain;                /* 背景图片尺寸 */
+    background-repeat: no-repeat;            /* 不重复背景 */
+}
+
+/* 眼睛图标关闭状态（隐藏密码）- 使用SVG内嵌数据URI */
+.eye-btn .eye-icon.closed { 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23666' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z'/%3E%3Cpath d='M15 9a3 3 0 1 1-6 6'/%3E%3Cpath d='M4 4l16 16'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 眼睛图标打开状态（显示密码） */
+.eye-btn .eye-icon.open { 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23666' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 验证消息样式 */
+.verify-msg { 
+    margin: 8px 0 16px;                      /* 外边距 */
+    color: #e2211c;                          /* 红色文字 */
+    font-size: 13px;                         /* 字体大小 */
+}
+
+/* 字段提示文字样式 */
+.field-hint { 
+    margin-top: 6px;                         /* 顶部外边距 */
+    font-size: 12px;                         /* 字体大小 */
+    color: #8a8f94;                          /* 灰色文字 */
+}
+.field-hint.ok { 
+    color: #2fb02f;                          /* 成功提示：绿色 */
+}
+.field-hint.error { 
+    color: #e2211c;                          /* 错误提示：红色 */
+}
+
+/* 密码强度指示器 */
+.pwd-strength { 
+    display: flex;                           /* 弹性布局 */
+    align-items: center;                     /* 垂直居中 */
+    gap: 10px;                               /* 元素间距 */
+    margin-top: 8px;                         /* 顶部外边距 */
+}
+.pwd-strength .bars { 
+    display: flex;                           /* 弹性布局 */
+    gap: 6px;                                /* 条间距 */
+}
+.pwd-strength .bar { 
+    width: 60px;                             /* 条宽度 */
+    height: 6px;                             /* 条高度 */
+    background: #edf0f3;                     /* 默认背景色（浅灰） */
+    border-radius: 3px;                      /* 圆角 */
+}
+/* 弱密码：只有第一条变红 */
+.pwd-strength.weak .bar:nth-child(1) { 
+    background: #e2211c;                     /* 红色 */
+}
+/* 中强度密码：前两条变橙色 */
+.pwd-strength.medium .bar:nth-child(-n+2) { 
+    background: #f5a623;                     /* 橙色 */
+}
+/* 强密码：所有条变绿色 */
+.pwd-strength.strong .bar { 
+    background: #2fb02f;                     /* 绿色 */
+}
+.pwd-strength .level { 
+    font-size: 12px;                         /* 字体大小 */
+    color: #666;                             /* 灰色文字 */
+}
+
+/* 注册页：侧边栏左移一点（相对右侧边缘更内侧）*/
+.fixedtool { 
+    right: 48px;                            /* 右侧间距48px */
+}
+.fixedtool.sidebar.collapsed { 
+    right: 48px;                            /* 折叠状态同样右间距 */
+}

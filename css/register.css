@@ -1,0 +1,289 @@
+/* 注册页：侧边栏左移一点（相对右侧边缘更内侧）*/
+/* 这段代码被注释掉了，所以当前不生效 */
+/* .fixedtool { 
+    right: 48px; 
+}
+.fixedtool.sidebar.collapsed { 
+    right: 48px; 
+} */
+
+/* register.css - 注册页面样式文件 */
+/* 定义CSS变量，便于统一管理颜色和尺寸 */
+:root{
+    --bg: #fafafa;            /* 背景色：浅灰色 */
+    --muted: #9ba6ad;         /* 次要文字颜色：中灰色 */
+    --accent: #e2211c;        /* 主题色/强调色：京东红 */
+    --panel-width: 480px;     /* 表单面板宽度 */
+}
+
+/* 页面基础样式 */
+body{
+    font-family: "Microsoft YaHei", Arial, sans-serif;  /* 字体设置 */
+    background: var(--bg);  /* 使用CSS变量设置背景 */
+    margin: 0;             /* 清除默认外边距 */
+    color: #222;           /* 主文字颜色：深灰接近黑色 */
+}
+
+/* 头部样式 */
+.header{
+    padding: 22px 0;                     /* 上下内边距 */
+    border-bottom: 1px solid #eee;      /* 底部边框线 */
+    background: #fff;                    /* 白色背景 */
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02); /* 底部轻微阴影 */
+}
+.header .wrap{
+    max-width: 1200px;     /* 最大宽度限制 */
+    margin: 0 auto;        /* 水平居中 */
+    display: flex;         /* 使用弹性布局 */
+    align-items: center;   /* 垂直居中 */
+    padding: 0 20px;       /* 左右内边距 */
+}
+.header .wrap .logo{
+    display: flex;         /* 弹性布局 */
+    align-items: center;   /* 垂直居中 */
+    gap: 12px;             /* 子元素间距12px */
+}
+.header .wrap .logo img{
+    height: 56px;          /* Logo图片高度 */
+}
+.header .wrap .welcome{
+    font-size: 20px;       /* 欢迎文字大小 */
+    color: #333;           /* 文字颜色 */
+}
+.header .wrap .advise{
+    margin-left: auto;     /* 自动左边距，推到最右侧 */
+}
+.header .wrap .help-link{
+    color: var(--accent);   /* 使用主题色 */
+    text-decoration: none;  /* 去掉下划线 */
+    font-weight: 500;       /* 中等加粗 */
+}
+
+/* 注册页面主体区域 */
+.register-page{
+    padding: 60px 0;        /* 上下内边距 */
+}
+.register-wrap{
+    max-width: 1200px;      /* 最大宽度限制 */
+    margin: 0 auto;         /* 水平居中 */
+    text-align: center;     /* 文本居中 */
+    padding: 0 20px;        /* 左右内边距 */
+}
+
+/* 步骤指示器样式 */
+/* 居中步骤条：点状连接线，当前步骤绿色实心圆 */
+.steps{
+    display: flex;            /* 弹性布局 */
+    align-items: center;      /* 垂直居中 */
+    justify-content: center;  /* 水平居中 */
+    gap: 18px;                /* 步骤间间距 */
+    margin-bottom: 20px;      /* 底部外边距 */
+}
+.step{
+    display: flex;            /* 弹性布局 */
+    flex-direction: column;   /* 垂直方向排列 */
+    align-items: center;      /* 水平居中 */
+    color: var(--muted);      /* 使用次要文字颜色 */
+}
+.step span{
+    display: inline-block;    /* 行内块元素 */
+    width: 32px;              /* 圆形宽度 */
+    height: 32px;             /* 圆形高度 */
+    border-radius: 50%;       /* 圆形 */
+    border: 2px solid #e6e6e6; /* 边框颜色 */
+    line-height: 28px;        /* 行高（用于垂直居中） */
+    text-align: center;       /* 文本居中 */
+    background: #fff;         /* 白色背景 */
+    color: #999;              /* 数字颜色 */
+    font-weight: 700;         /* 加粗 */
+    font-size: 14px;          /* 字体大小 */
+}
+.step.active span{
+    background: #2fb02f;      /* 激活状态背景色：京东绿 */
+    color: #fff;              /* 白色文字 */
+    border-color: #2fb02f;    /* 绿色边框 */
+    box-shadow: 0 0 0 6px rgba(47,176,47,0.08); /* 绿色发光效果 */
+}
+.step p{
+    margin: 8px 0 0;          /* 上下外边距 */
+    font-size: 13px;          /* 字体大小 */
+}
+.step.active p{
+    color: #2fb02f;           /* 激活状态文字颜色 */
+    font-weight: 600;         /* 加粗 */
+}
+.dots{
+    width: 140px;               /* 宽度 */
+    height: 10px;               /* 高度 */
+    /* 创建点状背景：小圆点重复 */
+    background-image: radial-gradient(#e6e6e6 0 3px, transparent 4px);
+    background-size: 14px 10px;  /* 点之间的间距 */
+    background-repeat: repeat-x;  /* 水平重复 */
+    background-position: center;  /* 居中 */
+    position: relative;           /* 相对定位 */
+}
+.dots:after{
+    content: "";                  /* 伪元素内容 */
+    position: absolute;           /* 绝对定位 */
+    right: -8px;                  /* 定位到右侧 */
+    top: 50%;                     /* 垂直居中 */
+    transform: translateY(-50%) rotate(-45deg); /* 旋转-45度 */
+    width: 8px;                   /* 宽度 */
+    height: 8px;                  /* 高度 */
+    border-right: 2px solid #e6e6e6;  /* 右边框 */
+    border-bottom: 2px solid #e6e6e6; /* 下边框 */
+    border-radius: 1px;           /* 轻微圆角 */
+    background: transparent;      /* 透明背景 */
+}
+
+/* 注册表单样式 */
+.reg-form{
+    max-width: var(--panel-width);  /* 使用CSS变量设置最大宽度 */
+    margin: 0 auto;                 /* 水平居中 */
+    text-align: left;               /* 文本左对齐 */
+    padding-top: 10px;              /* 顶部内边距 */
+}
+.field{
+    display: flex;            /* 弹性布局 */
+    gap: 12px;                /* 子元素间距 */
+    align-items: center;      /* 垂直居中 */
+    margin-bottom: 14px;      /* 底部外边距 */
+}
+.field select{
+    width: 160px;             /* 固定宽度 */
+    padding: 14px;            /* 内边距 */
+    border: 1px solid #e6e6e6; /* 边框 */
+    border-radius: 4px;       /* 圆角 */
+    background: #fff;         /* 白色背景 */
+}
+.field input[type="tel"]{
+    flex: 1;                  /* 占据剩余空间 */
+    padding: 14px;            /* 内边距 */
+    border: 1px solid #e6e6e6; /* 边框 */
+    border-radius: 4px;       /* 圆角 */
+    height: 52px;             /* 固定高度 */
+}
+
+.info{
+    margin: 12px 0 18px;      /* 外边距：上下 */
+    color: var(--muted);      /* 使用次要文字颜色 */
+    font-size: 13px;          /* 字体大小 */
+}
+.verify-msg{
+    min-height: 20px;         /* 最小高度，避免折叠 */
+    color: #d9534f;           /* 错误消息颜色：红色 */
+}
+.btn-verify{
+    display: block;           /* 块级元素 */
+    width: 100%;              /* 100%宽度 */
+    padding: 16px 12px;       /* 内边距 */
+    border: 1px solid #e6e6e6; /* 边框 */
+    background: #fff;         /* 白色背景 */
+    border-radius: 4px;       /* 圆角 */
+    margin-bottom: 18px;      /* 底部外边距 */
+    cursor: pointer;          /* 鼠标手型 */
+    text-align: center;       /* 文本居中 */
+}
+.btn-verify:disabled{
+    opacity: 0.6;             /* 禁用时透明度降低 */
+    cursor: not-allowed;      /* 禁用鼠标指针 */
+}
+.btn-agree{
+    display: block;           /* 块级元素 */
+    width: 100%;              /* 100%宽度 */
+    padding: 16px;            /* 内边距 */
+    background: var(--accent); /* 使用主题色作为背景 */
+    color: #fff;              /* 白色文字 */
+    border: none;             /* 无边框 */
+    border-radius: 4px;       /* 圆角 */
+    font-size: 18px;          /* 字体大小 */
+    margin: 18px 0 14px;      /* 外边距：上下 */
+    cursor: pointer;          /* 鼠标手型 */
+    height: 56px;             /* 固定高度 */
+}
+.btn-agree:disabled{
+    background: #d8d8d8;      /* 禁用时背景色变灰 */
+    cursor: not-allowed;      /* 禁用鼠标指针 */
+}
+
+.agree{
+    display: flex;            /* 弹性布局 */
+    align-items: center;      /* 垂直居中 */
+    gap: 8px;                 /* 子元素间距 */
+    color: var(--muted);      /* 使用次要文字颜色 */
+    font-size: 13px;          /* 字体大小 */
+}
+.agree a{
+    color: #2b7bd6;          /* 链接颜色：蓝色 */
+    text-decoration: underline; /* 下划线 */
+}
+.enterprise{
+    margin-top: 14px;         /* 顶部外边距 */
+    text-align: left;         /* 文本左对齐 */
+}
+.enterprise a{
+    color: var(--muted);      /* 使用次要文字颜色 */
+    text-decoration: none;    /* 去掉下划线 */
+}
+
+/* 页脚样式（复用简单规则） */
+.site-footer{
+    background: var(--bg);         /* 使用背景色变量 */
+    padding: 28px 0 36px;         /* 内边距 */
+    border-top: 1px solid #eef0f2; /* 顶部边框 */
+    margin-top: 40px;             /* 顶部外边距 */
+}
+.site-footer .footer-wrap{
+    max-width: 1200px;            /* 最大宽度限制 */
+    margin: 0 auto;               /* 水平居中 */
+    text-align: center;           /* 文本居中 */
+    padding: 0 20px;              /* 左右内边距 */
+}
+.site-footer .footer-links{
+    display: block;               /* 块级元素 */
+    color: var(--muted);          /* 使用次要文字颜色 */
+    font-size: 13px;              /* 字体大小 */
+}
+.site-footer .footer-links a{
+    color: var(--muted);          /* 使用次要文字颜色 */
+    text-decoration: none;        /* 去掉下划线 */
+    margin: 0 8px;                /* 左右外边距 */
+}
+.site-footer .footer-links .sep{
+    color: #dfe3e6;               /* 分隔符颜色：浅灰 */
+    margin: 0 8px;                /* 左右外边距 */
+}
+.site-footer .copyright{
+    margin-top: 10px;             /* 顶部外边距 */
+    color: var(--muted);          /* 使用次要文字颜色 */
+    font-size: 13px;              /* 字体大小 */
+}
+
+/* 响应式设计：屏幕宽度小于800px时的样式 */
+@media (max-width: 800px){
+    .reg-form{
+        width: 100%;              /* 100%宽度 */
+        padding: 0 20px;          /* 左右内边距 */
+    }
+    .dots{
+        width: 60px;              /* 点状线宽度变小 */
+    }
+    .header .wrap .logo img{
+        height: 44px;             /* Logo图片变小 */
+    }
+    .dots{
+        width: 80px;              /* 点状线宽度 */
+        height: 8px;              /* 点状线高度 */
+        background-size: 12px 8px; /* 点状背景大小调整 */
+    }
+    .steps{
+        gap: 12px;                /* 步骤间间距变小 */
+        margin-bottom: 16px;      /* 底部外边距变小 */
+    }
+    .step span{
+        width: 26px;              /* 圆形变小 */
+        height: 26px;             /* 圆形变小 */
+        line-height: 22px;        /* 行高调整 */
+        font-size: 12px;          /* 字体变小 */
+    }
+}

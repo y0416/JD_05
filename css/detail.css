@@ -1,0 +1,620 @@
+/* ==========================================================================
+商品详情页容器 (de_container) - 商品详情页主容器
+这个容器包含商品的所有详细信息，包括图片、描述、价格等
+========================================================================== */
+
+/* 商品详情容器样式 */
+.de_container {
+padding-top: 20px; /* 顶部内边距20像素，与上方内容隔开 */
+border-top: 2px solid #e01222; /* 顶部添加2像素红色边框，突出商品详情区域 /
+background-color: #fff; / 白色背景，与页面其他区域区分 */
+/* 红色边框和白色背景共同创建一个清晰的视觉分隔 */
+}
+
+/* ==========================================================================
+面包屑导航区域 (crumb_wrap) - 显示当前位置路径
+显示用户当前位置，如："首页 > 手机 > iPhone"等路径
+========================================================================== */
+
+/* 面包屑导航容器 */
+.crumb_wrap {
+height: 25px; /* 固定高度25像素，紧凑显示 */
+}
+
+/* 面包屑导航链接样式 */
+.crumb_wrap a {
+margin-right: 10px; /* 右侧外边距10像素，链接之间添加间距 */
+color: #333; /* 深灰色文字，常规显示 */
+}
+
+/* 面包屑导航链接悬停效果 */
+.crumb_wrap a:hover {
+color: #e33333; /* 悬停时变为红色，提供视觉反馈 */
+}
+
+/* ==========================================================================
+商品介绍区域 (product_intro) - 商品图片和基本信息区域
+包含商品图片放大镜功能和缩略图切换
+========================================================================== */
+
+/* 商品介绍主容器 */
+.product_intro {
+overflow: hidden; /* 清除浮动，防止高度塌陷，确保容器包含所有浮动子元素 */
+}
+
+/* ==========================================================================
+商品预览区域 (preview_wrap) - 商品图片展示区域
+包含主图、放大镜功能、缩略图列表
+========================================================================== */
+
+/* 预览区域容器 */
+.preview_wrap {
+width: 402px; /* 固定宽度402像素 */
+height: 590px; /* 固定高度590像素，提供足够的图片展示空间 */
+}
+
+/* ==========================================================================
+商品主图预览 (preview_img) - 商品主图显示区域
+支持放大镜效果：鼠标悬停时显示放大区域
+========================================================================== */
+
+/* 商品主图容器 */
+.preview_img {
+width: 400px; /* 宽度400像素（比容器小2px，为边框留空间） */
+border: 1px solid #ccc; /* 浅灰色边框，框出图片区域 */
+position: relative; /* 相对定位，为放大镜蒙层和放大图提供定位基准 /
+cursor: move; /* 鼠标指针变为移动光标，提示可拖动放大镜 */
+/* cursor: move 通常用于可拖拽元素，这里提示放大镜功能可交互 */
+}
+
+/* ==========================================================================
+放大镜蒙层 (mask) - 放大镜的透明选择区域
+用户鼠标在主图上移动时显示的黄色半透明区域
+========================================================================== */
+
+.mask {
+display: none; /* 默认隐藏，鼠标悬停时通过JS显示 */
+position: absolute; /* 绝对定位，相对于.preview_img容器 */
+top: 0; /* 顶部对齐 */
+left: 0; /* 左侧对齐 */
+width: 100px; /* 蒙层宽度100像素 */
+height: 100px; /* 蒙层高度100像素 */
+background-color: #FEDE4F; /* 黄色背景，高亮显示当前放大区域 */
+opacity: .5; /* 50%透明度，能看到下方的原图 */
+border: 1px solid #ccc; /* 浅灰色边框，定义蒙层边界 */
+cursor: move; /* 移动光标，提示可拖动 */
+}
+
+/* ==========================================================================
+放大图显示区域 (big) - 放大后的图片显示区域
+显示主图放大后的细节，通常为500×500像素
+========================================================================== */
+
+.big {
+display: none; /* 默认隐藏，鼠标悬停时通过JS显示 */
+position: absolute; /* 绝对定位，相对于.preview_img容器 */
+left: 410px; /* 距离左侧410像素，在主图右侧显示 */
+top: 0; /* 顶部对齐 */
+width: 500px; /* 放大图宽度500像素 */
+height: 500px; /* 放大图高度500像素 */
+z-index: 999; /* 很高的堆叠顺序，确保显示在最上层 */
+border: 1px solid #ccc; /* 浅灰色边框 */
+overflow: hidden; /* 隐藏超出部分，确保放大图不会溢出 */
+}
+
+/* 放大图中的图片定位 */
+.big img {
+position: absolute; /* 绝对定位，便于通过JS控制位置实现放大效果 */
+top: 0; /* 顶部对齐 */
+left: 0; /* 左侧对齐 */
+}
+
+/* ==========================================================================
+缩略图列表区域 (preview_list) - 商品多图缩略图列表
+显示多张商品图片缩略图，支持左右切换
+========================================================================== */
+
+.preview_list {
+height: 60px; /* 固定高度60像素，紧凑显示缩略图 */
+margin-top: 60px; /* 顶部外边距60像素，与主图保持距离 */
+position: relative; /* 相对定位，为左右箭头提供定位基准 */
+width: 400px; /* 宽度400像素，与主图同宽 */
+overflow: hidden; /* 超出部分隐藏，实现有限区域内显示部分缩略图 */
+}
+
+/* 缩略图列表容器 */
+.list_item {
+width: 320px; /* 列表总宽度320像素 */
+height: 60px; /* 高度60像素 */
+margin: 0 auto; /* 水平居中 */
+}
+
+/* 单个缩略图项 */
+.list_item li {
+width: 56px; /* 缩略图宽度56像素 */
+height: 56px; /* 缩略图高度56像素 */
+float: left; /* 左浮动，水平排列 */
+margin: 0 2px; /* 左右外边距各2像素，缩略图之间的间隔 */
+border: 2px solid transparent; /* 透明边框，为选中状态预留空间 */
+cursor: pointer; /* 指针光标，提示可点击 */
+}
+
+/* 当前选中的缩略图样式 */
+.list_item .current {
+border: 2px solid #e01222; /* 红色边框，高亮显示当前选中图片 */
+}
+
+/* ==========================================================================
+缩略图左右箭头 (arrow_prev, arrow_next) - 缩略图导航按钮
+当缩略图数量超过显示区域时，提供左右滚动功能
+========================================================================== */
+
+/* 左右箭头通用样式 */
+.arrow_prev,
+.arrow_next {
+position: absolute; /* 绝对定位，相对于.preview_list容器 */
+top: 50%; /* 垂直居中定位：距离顶部50% */
+transform: translateY(-50%); /* 向上偏移自身高度的50%，实现完美垂直居中 */
+width: 22px; /* 箭头宽度22像素 */
+line-height: 42px; /* 行高42像素，确保箭头垂直居中（通常配合字体图标使用） */
+text-align: center; /* 水平居中 */
+font-size: 22px; /* 字体大小22像素，较大的箭头图标 */
+border: 1px solid #ccc; /* 浅灰色边框 */
+background-color: #EBEBEB; /* 浅灰色背景 */
+display: block; /* 块级显示 */
+color: #333; /* 深灰色文字/图标 */
+text-decoration: none; /* 去除下划线（如果是a标签） */
+z-index: 2; /* 堆叠顺序2，确保显示在缩略图上方 */
+}
+
+/* 左箭头定位 */
+.arrow_prev {
+left: 0; /* 紧贴左侧 */
+}
+
+/* 右箭头定位 */
+.arrow_next {
+right: 0; /* 紧贴右侧 */
+}
+
+/* 右边选择型号 */
+.itemInfo_wrap {
+    width: 718px;
+}
+.sku_name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+.news {
+    height: 32px;
+    color: #e12228;
+    font-size: 12px;
+}
+.summary dl {
+    overflow: hidden;
+}
+.summary dt,dd {
+    float: left;
+}
+.summary dt {
+    width: 60px;
+    padding-left: 10px;
+    line-height: 36px;
+    color: #333;
+    font-size: 14px;
+}
+.summary dd {
+    font-size: 12px;
+    line-height: 36px;
+    color: #999;
+}
+.summary_price,
+.summary_promotion {
+    padding: 10px 0;
+    background-color: #fee9eb;
+    position: relative;
+}
+.price {
+    font-size: 24px;
+    color: #e12228;
+    font-style: normal;
+}
+.summary_price a {
+    color: #c81623;
+}
+.remark {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 12px;
+}
+.summary_promotion a {
+    padding-top: 0;
+}
+.summary_promotion dd {
+    width: 450px;
+}
+.summary_promotion em {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    background-color: #c81623;
+    text-align: center;
+    font-style: normal;
+}
+.summary_stock dd {
+    line-height: 25px;
+}
+/* 选择颜色*/
+.choose_color {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+/* 选择版本  选择类型 */
+.choose_color a,
+.choose_version a,
+.choose_type a {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    color: #000;
+    border: 1px solid #ededed;
+    text-align: center;
+    padding: 0 12px;
+}
+.summary a.current {
+    border-color: #c81623;
+}
+.choose_version  {
+    margin: 10px 0;
+}
+.choose_btns {
+    margin-top: 20px;
+}
+.choose_amount {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.choose_amount input {
+    width: 60px;
+    height: 43px;
+    text-align: center;
+    border: 0;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.add, 
+.reduce {
+    width: 32px;
+    height: 45px;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 45px;
+    color: #333;
+    border: 0;
+}
+/* 加入购物车 */
+.addCar {
+    float: left;
+    width: 142px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #c81623;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 25px;
+    font-weight: 700;
+}
+.addCar:hover {
+    background-color: #ed6a5a;
+    color: #fff;
+}
+
+/* 商品详情 */
+.product_detail {
+    overflow: hidden;
+    margin-top: 30px;
+}
+.aside {
+    width: 208px;
+    border: 1px solid #ccc;
+}
+.tab_list {
+    height: 34px;
+}
+.tab_list li {
+    float: left;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+    height: 39px;
+    text-align: center;
+    line-height: 39px;
+    cursor: pointer;
+}
+.tab_list .current {
+    background-color: #fff;
+    border-bottom: 0;
+    color: #f10215;
+}
+.first_tab {
+    width: 104px;
+}
+.second_tab {
+    width: 103px;
+    border-left: 1px solid #ccc;
+}
+.tab_con {
+    padding: 0 10px;
+}
+.tab_con li {
+    border-bottom: 1px solid #ccc;
+    margin-top: 20px;
+}
+.tab_con li:last-child {
+    border-bottom: 0;
+}
+.tab_con li img {
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+.tab_con li h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: normal;
+}
+.aside_price {
+    font-weight: 700;
+    margin: 10px 0;
+}
+.as_addcar {
+    display: block;
+    width: 88px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border: 1px solid #c81623;
+    margin: 10px auto;
+    font-size: 14px;
+    color: #c81623;
+    font-weight: 700;
+}
+.as_addcar:hover {
+    border: 1px solid transparent;
+    background-color: #c81623;
+    color: #fff;
+}
+.detail {
+    float: none;
+    width: 100%;
+}
+.detail_tab_list {
+    height: 39px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.detail_tab_list li {
+    line-height: 39px;
+    padding: 0 20px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+.detail_tab_list li:hover {
+    color: #c81623;
+}
+.detail_tab_list ul .current {
+    background-color: #c81623;
+    color: #fff;
+}
+.item_info {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.item_info:not(.line) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+.item_info:not(.line) li {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 14px 12px;
+    border-right: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+}
+.item_info:not(.line) li:nth-child(4n) {
+    border-right: 0;
+}
+.item_info:not(.line) li:last-child {
+    border-bottom: 0;
+}
+.item_info .label {
+    color: #666;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.item_info .value {
+    color: #333;
+    flex: 1;
+}
+.item p {
+    margin-bottom: 20px;
+}
+.item .more {
+    float: right;
+    font-weight: 700;
+    font-family: 'icomoon';
+}
+.line li {
+    border-bottom: 1px solid #f2f2f2;
+    padding: 14px 12px;
+}
+.line li:last-child {
+    border-bottom: 0;
+}
+.item_info.line {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+.item_info.line li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.item_info.line li:nth-child(2n) {
+    border-right: 0;
+}
+.item_info.line .label {
+    color: #666;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.item_info.line .value {
+    color: #333;
+    flex: 1;
+}
+.item_info h3, dt, dd {
+    color: #999;
+    font-size: 12px;
+}
+.item h3 {
+    float: left;
+    width: 110px;
+    text-align: right;
+}
+.item_info dl {
+    float: left;
+    width: 800px;
+}
+.item_info dd {
+    display: inline-block;
+    width: 165px;
+    height: 26px;
+    line-height: 26px;
+    text-align: right;
+}
+.item_info dt {
+    display: inline-block;
+    margin-left: 50px;
+}
+.rate {
+    overflow: hidden;
+}
+.rate-l {
+    width: 120px;
+    margin: 40px 0 0 20px;
+    text-align: center;
+}
+.rate-l strong {
+    font-size: 40px;
+    color: #c81623;
+}
+.rate-r {
+    margin: 30px 0 0 30px;
+    width: 780px;
+}
+.rate-r h3 {
+    font-size: 16px;
+    color: #333;
+    font-style: normal;
+    width: 700px;
+    text-align: left;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.rate-r li {
+    float: left;
+    background-color: #c81623;
+    padding: 0 7px;
+    margin: 0 10px 10px 0;
+    color: #fff;
+}
+.comment-info {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fafafa;
+    border: 1px solid #F5F5F5;
+    margin: 20px 0 20px 20px;
+    padding-left: 5px;
+}
+.comment-info a {
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+}
+.comment-info a:hover {
+    color: #c81623;
+}
+.comment-main {
+    width: 100%;
+    overflow: hidden;
+    margin-left: 20px;
+}
+.comment-main li {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.comment-main a {
+    display: block;
+    float: left;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    background: url(../images/hwbn40x40.jpg) no-repeat;
+    background-size: 48px;
+}
+.comment-main-r {
+    float: left;
+    width: 800px;
+    border: 1px solid #dedede;
+    margin-left: 20px;
+    position: relative;
+}
+.main-top:before {
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    border-width: 8px 8px 8px 0;
+    border-right-color: #dedede;
+    pointer-events: none;
+    z-index: 1;
+}
+.main-top {
+    height: 37px;
+    padding: 10px 15px;
+    font-size: 13px;
+    color: #999;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+.main-bd {
+    padding: 15px;
+}

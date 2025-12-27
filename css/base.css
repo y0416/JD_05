@@ -1,0 +1,425 @@
+/* ==========================================================================
+Header 头部区域样式
+========================================================================== */
+
+/* 头部容器设置 - 固定高度为80px */
+header {
+height: 80px; /* 设置header元素的总高度为80像素 */
+}
+
+/* 头部内所有链接设置 - 块级显示并占满80px高度 */
+header a {
+display: block; /* 将a标签设置为块级元素，使其可以设置宽度和高度 */
+height: 80px; /* 设置链接高度为80像素，与header高度保持一致 */
+}
+
+/* ==========================================================================
+Shortcut 快捷导航栏样式（顶部栏）
+========================================================================== */
+
+/* 顶部快捷导航栏主容器 */
+.shortcut {
+background-color: #e3e4e5; /* 设置浅灰色背景色 */
+height: 30px; /* 固定高度为30像素 */
+line-height: 30px; /* 行高与高度相同，实现垂直居中效果 */
+border-bottom: 1px solid #ddd; /* 底部添加1像素浅灰色边框 */
+}
+
+/* 城市选择区域 - 左侧定位 */
+.city {
+margin-left: 200px; /* 左外边距200像素，使其从左侧偏移 */
+}
+
+/* 快捷导航栏内所有列表项设置为浮动 */
+.shortcut li {
+float: left; /* 使用左浮动使列表项水平排列 */
+}
+
+/* 图标字体设置 - 使用icomoon字体图标 */
+.shortcut i {
+font-family: "icomoon"; /* 指定使用icomoon字体图标库 */
+font-style: normal; /* 强制字体样式为正常（取消斜体效果） */
+color: #999; /* 设置图标颜色为灰色 */
+}
+
+/* ==========================================================================
+界面修饰样式
+========================================================================== */
+
+/* 分隔线样式 - 用于菜单项之间的视觉分隔 */
+.space {
+width: 1px; /* 宽度为1像素，创建细线效果 */
+height: 10px; /* 高度10像素 */
+background-color: #ccc; /* 设置分隔线颜色为浅灰色 */
+margin: 10px 12px 0px; /* 上外边距10px，左右外边距12px，下外边距0px */
+}
+
+/* 导航菜单项基础设置 */
+.nav li {
+position: relative; /* 设置为相对定位，为子元素的绝对定位提供参照 */
+}
+
+/* ==========================================================================
+下拉菜单样式
+========================================================================== */
+
+/* 下拉菜单容器样式 */
+.dropdown-layer {
+position: absolute; /* 绝对定位，相对于父元素li定位 */
+width: 480px; /* 设置下拉菜单宽度为480像素 */
+height: auto; /* 高度自适应内容 */
+top: 30px; /* 距离父元素顶部30像素，正好在导航栏下方 */
+left: -12px; /* 向左偏移12像素进行微调对齐 */
+background-color: #fff; /* 白色背景 */
+border: 1px solid #ddd; /* 添加1像素浅灰色边框 */
+box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* 添加阴影效果，增强层次感 */
+z-index: 999; /* 设置很高的堆叠顺序，确保显示在最上层 */
+padding: 12px 16px; /* 内边距：上下12像素，左右16像素 */
+display: none; /* 默认隐藏下拉菜单 */
+}
+
+/* 下拉菜单内定义列表设置 */
+.dropdown-layer dl {
+width: 100%; /* 宽度占满父容器 */
+padding: 8px 0; /* 上下内边距8像素 /
+overflow: hidden; / 清除内部浮动，防止高度塌陷 */
+}
+
+/* 带有.d类的定义列表添加底部边框 */
+.dropdown-layer .d {
+border-bottom: 1px solid #eee; /* 添加1像素浅灰色底部边框 */
+}
+
+/* 下拉菜单内定义描述项设置 */
+.dropdown-layer dl dd {
+float: left; /* 左浮动，使dd元素水平排列 */
+width: 33.333%; /* 每个dd占据父容器宽度的1/3（三列布局） */
+margin: 4px 0; /* 上下外边距4像素 */
+}
+
+/* 下拉菜单内链接样式 */
+.dropdown-layer dl dd a {
+display: inline-block; /* 行内块级显示，可以设置宽度高度 */
+color: #666; /* 设置文字颜色为深灰色 */
+font-size: 12px; /* 字体大小12像素 */
+}
+
+/* 鼠标悬停时链接文字变红色 */
+.dropdown-layer dl dd a:hover {
+color: #f10215; /* 京东红色，悬停时改变文字颜色 */
+}
+
+/* ==========================================================================
+手机扫码购物区域样式
+========================================================================== */
+
+/* 手机京东区域容器设置 */
+.mobile {
+position: relative; /* 相对定位，为子元素绝对定位提供参照 */
+}
+
+/* 手机二维码图片样式 */
+.mobile img{
+position: absolute; /* 绝对定位，相对于.mobile容器 */
+left: -3px; /* 向左偏移3像素进行微调 */
+top: 32px; /* 距离顶部32像素，在导航栏下方显示 */
+border: 1px solid #ccc; /* 添加1像素浅灰色边框 */
+padding: 3px; /* 添加3像素内边距，使图片与边框有间隔 */
+}
+
+/* 关闭按钮样式 */
+.mobile i {
+position: absolute; /*绝对定位，相对于.mobile容器 */
+top: 32px; /* 与图片顶部对齐 */
+left: 65px; /* 距离左侧65像素，位于图片右侧 */
+width: 15px; /* 宽度15像素 */
+height: 15px; /* 高度15像素 */
+line-height: 15px; /* 行高等于高度，实现垂直居中 /
+text-align: center; / 水平居中 */
+border: 1px solid #ccc; /* 添加1像素浅灰色边框 */
+border-left: 0; /* 移除左侧边框，与图片边框连接 /
+cursor: pointer; / 鼠标悬停时变为手型光标，表示可点击 */
+}
+
+.nav02 {
+	background-color: #fff;
+}
+.middle {
+	height: 140px;
+	position: relative;
+}
+/* logo */
+.logo {
+	position: absolute;
+	top: 10px;
+	left: 0px;
+}
+.logo a {
+	display: block; 
+	text-indent: -999px;
+	overflow: hidden;
+	/*font-size: 0;*/
+}
+.form {
+	width: 550px;
+	height: 35px;
+	position: absolute;
+	top: 25px;
+	left: 320px;
+}
+/* 中间搜索 */
+.form input {
+	width: 495px;
+	height: 33px;
+	border: 1px solid #f10215;
+	float: left;
+	font-size: 14px;
+	padding-left: 3px;
+}
+.form button {
+	width: 50px;
+	height: 35px;
+	float: left;
+	background-color: #f10215;
+}
+.form button i {
+	font-family: "icomoon";
+	font-style: normal;
+	color: #fff;
+}
+/* 购物车 */
+.shopCar {
+	width: 178px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 25px;
+	right: 95px;
+	background-color: #fff;
+	text-align: center;
+	color: #f10215;
+}
+.shopCar i {
+	font-family: icomoon;
+	font-style: normal;
+	margin-right: 5px;
+}
+.shopCar .cart-icon {
+	font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+	font-style: normal;
+	font-size: 16px;
+}
+.shopCar span {
+	height: 15px;
+	background-color: #f10215;
+	border-radius: 8px 8px 8px 0;
+	position: absolute; 
+	top: -6px;
+	left: 135px;
+	font-size: 12px;
+	color: #fff;
+	line-height: 15px;
+	padding: 0 5px;
+}
+.hotwords {
+	position: absolute;
+	top: 68px;
+	left: 320px;
+}
+.navitems {
+	width: 770px;
+	height: 40px;
+	line-height: 40px;
+	position: absolute;
+	bottom: 0;
+	left: 200px;
+}
+.navitems li {
+	float: left;
+	margin-left: 30px;
+}
+.navitems li a {
+	font-size: 16px;
+	font-weight: 700;
+	color: #555;
+}
+.navitems li a:hover {
+	color: #f10215;
+}
+.navitems .space {
+	margin: 15px -15px 0px 15px;
+}
+footer {
+	margin-top: 35px;
+	height: 560px;
+	background-color: #eaeaea;
+}
+footer a {
+	color: #666;
+}
+.service {
+	padding: 30px 0px;
+	border-bottom: 1px solid #dedede;
+	overflow: hidden; 
+}
+.service ul li {
+	width: 297px;
+	height: 43px;
+	position: relative;
+	line-height: 43px;
+	float: left;
+}
+.service li h5 {
+	position: absolute;
+	top: 0;
+	left: 38px;
+	width: 36px;
+	height: 43px;
+	background: url(../images/ico.png) no-repeat;
+}
+.service li:nth-child(2) h5 {
+	background-position: 0 -43px;
+}
+.service li:nth-child(3) h5 {
+	background-position: 0 -86px;
+}
+.service li:nth-child(4) h5 {
+	background-position: bottom;
+}
+.service li p {
+	font-weight: 700;
+	margin-left: 82px;
+}
+.help {
+	height: 200px;
+	border-bottom: 1px solid #dedede;
+	padding-top: 25px;
+	box-sizing: border-box;
+}
+.help dl {
+	width: 192px;
+	float: left;
+}
+.help dt,
+.coverage h5 {
+	height: 30px;
+	font-size: 14px;
+	color: #666;
+}
+.help dd {
+	height: 22px;
+}
+.coverage {
+	width: 200px;
+	height: 150px;
+	background: url(../images/ico_footer.png) no-repeat;
+}
+.coverage h5 {
+	padding-left: 35px;
+}
+.coverage p {
+	width: 180px;
+	font-size: 12px;
+	color: #666;
+	line-height: 18px;
+}
+.coverage a {
+	display: block;
+	margin-top: 5px;
+	width: 180px;
+	text-align: right;
+}
+.copyright {
+	color: #666;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+.copyright span {
+	margin: 0 10px;
+}
+.copyright div p {
+	line-height: 22px;
+}
+.copyright div {
+	margin-top: 22px;
+}
+.foot-icon a {
+	display: inline-block;
+	width: 103px;
+	height: 33px;
+	background: url(../images/ico_footer.png) no-repeat 0 -150px;
+	margin: 20px 4px 0;
+}
+.foot-icon a:nth-child(2) {
+	background-position: -103px -150px;
+}
+.foot-icon a:nth-child(3) {
+	background-position: 0 -183px;
+}
+.foot-icon a:nth-child(4) {
+	background-position: -103px -183px;
+}
+.foot-icon a:nth-child(5) {
+	background-position: 0 -216px;
+}
+.foot-icon a:nth-child(6) {
+	background-position: -103px -216px;
+}
+/* 响应式设计 - 媒体查询部分
+这段CSS使用@media媒体查询实现响应式布局，根据屏幕宽度调整页面元素的显示和样式
+========================================================================== */
+@media only screen and (min-width: 500px) {
+	header,
+	.shortcut {
+		display: block;
+	}
+	.logo a {
+		width: 190px;
+		height: 120px;
+		background: #fff url(../images/biglogo.png) no-repeat;
+	}
+}
+/* 媒体查询2: 当屏幕宽度小于等于323px时应用的样式
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 323px) {
+	.w {
+		width: 304px;
+	}
+	.middle {
+		width: 304px;
+		height: 70px;
+	}
+	header,
+	.shortcut {
+	    display: none;
+	}
+	.logo {
+		left: 10px;
+	}
+	.logo a {
+		width: 70px;
+		height: 42px;
+		background: #fff url(../images/smalllogo.png) no-repeat;
+		background-size: 70px 42px;
+	}
+	.form {
+		width: 208px;
+		height: 36px;
+		left: 90px;
+		top: 20px;
+	}
+	.form input {
+		width: 160px;
+	}
+	.form button {
+		width: 40px;
+	}
+	.shopCar,
+	.hotwords,
+	.navitems,
+	.super {
+		display: none;
+	}
+}

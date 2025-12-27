@@ -1,0 +1,167 @@
+/* 注册页：侧边栏左移一点（相对右侧边缘更内侧）*/
+.fixedtool { 
+    right: 48px;  /* 设置侧边栏距离右侧48像素 */
+}
+.fixedtool.sidebar.collapsed { 
+    right: 48px;  /* 侧边栏折叠状态也保持相同位置 */
+}
+
+/* register3.css - 注册成功页面样式 */
+/* 定义CSS变量，便于统一管理和维护 */
+:root{
+  --bg: #fafafa;      /* 背景色：浅灰色 */
+  --accent: #e2211c;  /* 强调色/品牌色：京东红 */
+  --muted: #9ba6ad;   /* 次要文字颜色：中灰色 */
+}
+
+/* 页面基础样式 */
+body{
+  font-family: "Microsoft YaHei", Arial, sans-serif; /* 字体设置：微软雅黑为首选，Arial为备选 */
+  background: var(--bg);  /* 使用定义的背景色变量 */
+  margin: 0;             /* 清除默认外边距 */
+  color: #222;           /* 主文字颜色：深灰色接近黑色 */
+}
+
+/* 头部样式 */
+.header{
+  padding: 18px 0;               /* 上下内边距：18像素 */
+  border-bottom: 1px solid #eee; /* 底部边框：1像素浅灰色 */
+  background: #fff;               /* 白色背景 */
+}
+.header .wrap{
+  max-width: 1200px;            /* 最大宽度限制：1200像素 */
+  margin: 0 auto;               /* 水平居中 */
+  display: flex;                /* 使用弹性布局 */
+  align-items: center;          /* 垂直居中 */
+  padding: 0 20px;              /* 左右内边距：20像素 */
+}
+.header .logo img{
+  height: 46px;                 /* Logo图片高度：46像素 */
+}
+.header .advise{
+  margin-left: auto;            /* 自动左外边距，将元素推到最右侧 */
+}
+
+/* 主要成功内容区域 */
+.main-success{
+  padding: 60px 0 80px;         /* 内边距：上60px，下80px，左右0 */
+}
+.success-wrap{
+  max-width: 1000px;            /* 最大宽度：1000像素 */
+  margin: 0 auto;               /* 水平居中 */
+  text-align: center;           /* 文本居中 */
+}
+
+/* 成功标志圆环 */
+.success-circle{
+  width: 72px;                  /* 宽度：72像素 */
+  height: 72px;                 /* 高度：72像素 */
+  border-radius: 50%;           /* 圆形 */
+  border: 4px solid #2fb02f;    /* 边框：4像素京东绿色 */
+  display: inline-flex;         /* 内联弹性布局 */
+  align-items: center;          /* 垂直居中 */
+  justify-content: center;      /* 水平居中 */
+  color: #2fb02f;               /* 文字颜色：京东绿 */
+  font-size: 34px;              /* 字体大小：34像素 */
+  margin-bottom: 18px;          /* 底部外边距：18像素 */
+}
+
+/* 成功标题 */
+.success-title{
+  font-size: 20px;              /* 字体大小：20像素 */
+  color: #333;                  /* 文字颜色：深灰色 */
+  margin-bottom: 8px;           /* 底部外边距：8像素 */
+}
+
+/* 成功副标题 */
+.success-sub{
+  color: var(--muted);          /* 使用次要文字颜色变量 */
+  margin-bottom: 22px;          /* 底部外边距：22像素 */
+}
+
+/* 去购物按钮 */
+.btn-shop{
+  display: inline-block;        /* 行内块元素 */
+  background: var(--accent);    /* 背景色：京东红 */
+  color: #fff;                  /* 文字颜色：白色 */
+  padding: 12px 28px;           /* 内边距：上下12px，左右28px */
+  border-radius: 4px;           /* 圆角：4像素 */
+  text-decoration: none;        /* 去掉下划线 */
+  font-weight: 600;             /* 字体粗细：600（中等加粗） */
+}
+
+/* 奖励卡片区域 */
+.rewards{
+  margin-top: 46px;             /* 顶部外边距：46像素 */
+  display: flex;                /* 弹性布局 */
+  justify-content: center;      /* 水平居中 */
+  gap: 18px;                    /* 卡片间距：18像素 */
+}
+
+/* 单个奖励卡片 */
+.reward-card{
+  width: 220px;                 /* 固定宽度：220像素 */
+  background: #fff;             /* 白色背景 */
+  border-radius: 4px;           /* 圆角：4像素 */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06); /* 阴影：轻微阴影效果 */
+  padding: 18px;                /* 内边距：18像素 */
+  text-align: center;           /* 文本居中 */
+}
+
+/* 奖励卡片标题 */
+.reward-card .title{
+  font-size: 14px;              /* 字体大小：14像素 */
+  color: #666;                  /* 文字颜色：中灰色 */
+  margin-bottom: 10px;          /* 底部外边距：10像素 */
+}
+
+/* 奖励卡片图片容器 */
+.reward-card .img{
+  height: 78px;                 /* 固定高度：78像素 */
+  background: #f6f6f6;          /* 背景色：浅灰色 */
+  border-radius: 4px;           /* 圆角：4像素 */
+  margin-bottom: 12px;          /* 底部外边距：12像素 */
+  display: flex;                /* 弹性布局 */
+  align-items: center;          /* 垂直居中 */
+  justify-content: center;      /* 水平居中 */
+}
+.reward-card .img img{
+  max-width: 100%;              /* 最大宽度：100%容器宽度 */
+  max-height: 100%;             /* 最大高度：100%容器高度 */
+}
+
+/* 奖励卡片操作按钮 */
+.reward-card .cta{
+  display: inline-block;        /* 行内块元素 */
+  padding: 6px 10px;            /* 内边距：上下6px，左右10px */
+  border-radius: 18px;          /* 圆角：18像素（形成胶囊形状） */
+  border: 1px solid #e2211c;    /* 边框：1像素京东红色 */
+  color: var(--accent);         /* 文字颜色：京东红 */
+  font-size: 13px;              /* 字体大小：13像素 */
+  text-decoration: none;        /* 去掉下划线 */
+}
+
+/* 页脚样式 */
+.site-footer{
+  background: var(--bg);         /* 背景色：浅灰色 */
+  padding: 28px 0 36px;         /* 内边距：上28px，下36px */
+  border-top: 1px solid #eef0f2; /* 顶部边框：1像素浅灰色 */
+  margin-top: 40px;             /* 顶部外边距：40像素 */
+}
+.site-footer .footer-wrap{
+  max-width: 1200px;            /* 最大宽度：1200像素 */
+  margin: 0 auto;               /* 水平居中 */
+  text-align: center;           /* 文本居中 */
+  padding: 0 20px;              /* 左右内边距：20像素 */
+}
+
+/* 响应式设计：屏幕宽度小于900像素时 */
+@media (max-width: 900px){
+  .rewards{
+    flex-direction: column;     /* 改为垂直排列 */
+    align-items: center;        /* 水平居中 */
+  }
+  .reward-card{
+    width: 320px;               /* 卡片宽度变大：320像素 */
+  }
+}

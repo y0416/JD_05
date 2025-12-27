@@ -1,0 +1,404 @@
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/*
+Normalize.css v5.0.0 - 一个现代、HTML5就绪的CSS重置替代方案
+项目地址：http://necolas.github.io/normalize.css/
+作用：使浏览器更一致地渲染所有元素，并符合现代标准
+*/
+
+/* ==========================================================================
+   Document 文档根元素设置
+   ========================================================================== */
+
+html {
+    font-family: sans-serif; /* 1. 在所有浏览器中更改默认字体族(基于主观意见) */
+    line-height: 1.15; /* 2. 修正所有浏览器中的行高 */
+    -ms-text-size-adjust: 100%; /* 3. 防止Windows Phone和iOS中方向更改后的字体大小调整 */
+    -webkit-text-size-adjust: 100%; /* 3. 同上，针对webkit浏览器 */
+}
+
+/* ==========================================================================
+   Sections 章节元素设置
+   ========================================================================== */
+
+/* 移除所有浏览器中的body边距(基于主观意见) */
+body {
+    margin: 0;
+}
+
+/* 在IE 9-中添加正确的display属性 */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+
+/* 修正Chrome、Firefox和Safari中section和article上下文内h1元素的字体大小和边距 */
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/* ==========================================================================
+   Grouping content 分组内容元素设置
+   ========================================================================== */
+
+/* 在IE 9-中添加正确的display属性 */
+figcaption,
+figure,
+main { /* 1. 在IE中添加正确的display属性 */
+    display: block;
+}
+
+/* 在IE 8中添加正确的figure外边距 */
+figure {
+    margin: 1em 40px;
+}
+
+/* 水平线元素设置 */
+hr {
+    box-sizing: content-box; /* 1. 在Firefox中添加正确的盒模型 */
+    height: 0; /* 1. 同上 */
+    overflow: visible; /* 2. 在Edge和IE中显示溢出内容 */
+}
+
+/* 预格式化文本设置 */
+pre {
+    font-family: monospace, monospace; /* 1. 修正所有浏览器中的字体继承和缩放 */
+    font-size: 1em; /* 2. 修正所有浏览器中奇怪的`em`字体大小 */
+}
+
+/* ==========================================================================
+   Text-level semantics 文本级语义元素设置
+   ========================================================================== */
+
+/* 链接元素设置 */
+a {
+    background-color: transparent; /* 1. 移除IE 10中活动链接的灰色背景 */
+    -webkit-text-decoration-skip: objects; /* 2. 移除iOS 8+和Safari 8+中链接下划线的间隙 */
+}
+
+/* 移除活动或悬停链接在所有浏览器中的聚焦轮廓(基于主观意见) */
+a:active,
+a:hover {
+    outline-width: 0;
+}
+
+/* 缩写元素设置 */
+abbr[title] {
+    border-bottom: none; /* 1. 移除Firefox 39-中的底部边框 */
+    text-decoration: underline; /* 2. 在Chrome、Edge、IE、Opera和Safari中添加正确的文本装饰 */
+    text-decoration: underline dotted; /* 2. 添加点状下划线装饰 */
+}
+
+/* 防止Safari 6中下一条规则重复应用`bolder` */
+b,
+strong {
+    font-weight: inherit;
+}
+
+/* 在Chrome、Edge和Safari中添加正确的字体粗细 */
+b,
+strong {
+    font-weight: bolder;
+}
+
+/* 代码相关元素设置 */
+code,
+kbd,
+samp {
+    font-family: monospace, monospace; /* 1. 修正所有浏览器中的字体继承和缩放 */
+    font-size: 1em; /* 2. 修正所有浏览器中奇怪的`em`字体大小 */
+}
+
+/* 在Android 4.3-中添加正确的定义术语字体样式 */
+dfn {
+    font-style: italic;
+}
+
+/* 在IE 9-中添加正确的标记背景和颜色 */
+mark {
+    background-color: #ff0;
+    color: #000;
+}
+
+/* 在所有浏览器中添加正确的小号字体大小 */
+small {
+    font-size: 80%;
+}
+
+/* 防止sub和sup元素在所有浏览器中影响行高 */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;  /* 下标位置调整 */
+}
+
+sup {
+    top: -0.5em;      /* 上标位置调整 */
+}
+
+/* ==========================================================================
+   Embedded content 嵌入内容元素设置
+   ========================================================================== */
+
+/* 在IE 9-中添加正确的音频视频display属性 */
+audio,
+video {
+    display: inline-block;
+}
+
+/* 在iOS 4-7中添加正确的无控制条音频的display属性 */
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/* 移除IE 10-中链接内图像的边框 */
+img {
+    border-style: none;
+}
+
+/* 在IE中隐藏SVG的溢出 */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Forms 表单元素设置
+   ========================================================================== */
+
+/* 表单控件基础设置 */
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: sans-serif; /* 1. 在所有浏览器中更改字体样式(基于主观意见) */
+    font-size: 100%; /* 1. 同上 */
+    line-height: 1.15; /* 1. 同上 */
+    margin: 0; /* 2. 移除Firefox和Safari中的外边距 */
+}
+
+/* 显示IE中的表单元素溢出 */
+button,
+input { /* 1. 在Edge中显示溢出 */
+    overflow: visible;
+}
+
+/* 移除Edge、Firefox和IE中文本转换的继承 */
+button,
+select { /* 1. 移除Firefox中文本转换的继承 */
+    text-transform: none;
+}
+
+/* 按钮相关样式设置 */
+button,
+html [type="button"], /* 1. 防止WebKit bug：在Android 4中破坏原生音频视频控制 */
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button; /* 2. 修正iOS和Safari中无法样式化可点击类型的问题 */
+    appearance: button; /* 标准属性，确保兼容性 */
+}
+
+/* 移除Firefox中按钮和提交元素的内边框和内边距 */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+/* 恢复被上一条规则取消的聚焦样式 */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+/* 在所有浏览器中更改fieldset的边框、边距和内边距(基于主观意见) */
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/* 图例元素设置 */
+legend {
+    box-sizing: border-box; /* 1. 修正Edge和IE中的文本换行 */
+    color: inherit; /* 2. 修正IE中从fieldset元素的颜色继承 */
+    display: table; /* 1. 同上 */
+    max-width: 100%; /* 1. 同上 */
+    padding: 0; /* 3. 移除内边距，防止开发者在所有浏览器中清零fieldset时被困扰 */
+    white-space: normal; /* 1. 修正文本换行 */
+}
+
+/* 进度条元素设置 */
+progress {
+    display: inline-block; /* 1. 在IE 9-中添加正确的display属性 */
+    vertical-align: baseline; /* 2. 在Chrome、Firefox和Opera中添加正确的垂直对齐 */
+}
+
+/* 移除IE中文本域的默认垂直滚动条 */
+textarea {
+    overflow: auto;
+}
+
+/* 复选框和单选按钮设置 */
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box; /* 1. 在IE 10-中添加正确的盒模型 */
+    padding: 0; /* 2. 移除IE 10-中的内边距 */
+}
+
+/* 修正Chrome中数字输入框增减按钮的光标样式 */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/* 搜索输入框设置 */
+[type="search"] {
+    -webkit-appearance: textfield; /* 1. 修正Chrome和Safari中的奇怪外观 */
+    appearance: textfield; /* 标准属性，确保兼容性 */
+    outline-offset: -2px; /* 2. 修正Safari中的轮廓样式 */
+}
+
+/* 移除macOS上Chrome和Safari中搜索框的内边距和取消按钮 */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/* 文件上传按钮设置 */
+::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1. 修正iOS和Safari中无法样式化可点击类型的问题 */
+    font: inherit; /* 2. 在Safari中将字体属性更改为继承 */
+}
+
+/* ==========================================================================
+   Interactive 交互元素设置
+   ========================================================================== */
+
+/* 在IE 9-中添加details和menu的正确display属性 */
+details, /* 1. 在Edge、IE和Firefox中添加正确的display属性 */
+menu {
+    display: block;
+}
+
+/* 在所有浏览器中添加summary的正确display属性 */
+summary {
+    display: list-item;
+}
+
+/* ==========================================================================
+   Scripting 脚本相关元素设置
+   ========================================================================== */
+
+/* 在IE 9-中添加canvas的正确display属性 */
+canvas {
+    display: inline-block;
+}
+
+/* 在IE中添加template的正确display属性 */
+template {
+    display: none;
+}
+
+/* ==========================================================================
+   Hidden 隐藏元素设置
+   ========================================================================== */
+
+/* 在IE 10-中添加[hidden]属性的正确display属性 */
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   自定义样式 - 项目特定样式
+   ========================================================================== */
+
+/* 图像垂直对齐设置 - 确保图像顶部对齐，避免基线对齐问题 */
+img {
+    vertical-align: top; 
+}
+
+/* 容器宽度设置 - 主容器宽度为1190px并居中显示 */
+.w {  
+    width: 1190px;  
+    margin: 0 auto;  
+}
+
+/* 浮动工具类 - 快速应用浮动的工具类 */
+.fl { /* 左浮动工具类 */
+    float: left;
+}
+.fr { /* 右浮动工具类 */
+    float: right;
+}
+
+/* 链接基础样式设置 */
+a {
+    text-decoration: none; /* 移除下划线 */
+    font-size: 12px;       /* 设置基础字体大小 */
+    color: #999;           /* 设置基础链接颜色 */
+}
+a:hover {
+    color: #e33333;        /* 悬停时链接颜色变为红色 */
+}
+
+/* 全局重置 - 重置所有常见HTML元素的边距、内边距和列表样式 */
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+    list-style: none; /* 移除列表样式 */
+    margin: 0;        /* 重置外边距 */
+    padding: 0;       /* 重置内边距 */
+}
+
+/* 表单元素重置 - 移除边框和轮廓线 */
+input, button {
+    border: 0;        /* 移除边框 */
+    outline: none;    /* 移除聚焦轮廓线 */
+}
+
+/* 全局背景色设置 */
+body {
+    background-color: #f6f6f6; /* 浅灰色背景 */
+}
+
+/* 特殊颜色类 - 用于需要突出显示红色文本的情况 */
+.f10 {
+    color: #f10215!important; /* 红色文本，使用!important确保优先级 */
+}
+
+/* 自定义字体图标设置 - 使用icomoon字体图标 */
+@font-face { 
+    font-family: 'icomoon'; /* 定义字体族名称 */
+    src:  url('../fonts/icomoon.eot?r5tos9'); /* IE9兼容模式 */
+    src:  url('../fonts/icomoon.eot?r5tos9#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../fonts/icomoon.ttf?r5tos9') format('truetype'), /* Safari, Android, iOS */
+        url('../fonts/icomoon.woff?r5tos9') format('woff'), /* 现代浏览器 */
+        url('../fonts/icomoon.svg?r5tos9#icomoon') format('svg'); /* iOS设备 */
+    font-weight: normal;   /* 正常字体粗细 */
+    font-style: normal;    /* 正常字体样式 */
+    font-display: block;   /* 字体显示策略 */
+}
+
+/* 清除浮动工具类 - 使用伪元素清除浮动 */
+.clearfix:after {
+    clear: both; /* 清除两侧浮动 */
+}
+.clearfix:after, .clearfix:before {
+    display: table;    /* 设置为表格布局 */
+    content: "";       /* 空内容 */
+    line-height: 0;    /* 行高为0避免额外高度 */
+}

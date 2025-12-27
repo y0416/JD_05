@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="wrap">
+            <div class="logo">
+                 <a href="./index.html">
+                <img src="images/logo.png" alt="网站 Logo">
+            </a>
+            </div>
+                     <div class="advise">
+            <img src="./images/iconfonts/节日.png" style="width: 14px; height: 14px;">
+             <a class="help-link" href="#" style="margin-left:auto">登录页面，改进建议</a>
+           </div>
+                     <nav class="quick-links">
+                         <a href="./cart.html">购物车</a>
+                         <a href="./pay.html">我的订单</a>
+                     </nav>
+        </div>
+    </header>
+
+    <main class="login-page">
+        <div class="login-wrap">
+            <div class="left">
+                <h3>京东APP扫码登录</h3>
+                <p class="hint">打开 <span class="accent">京东APP</span> 点左上角扫一扫</p>
+                <div class="qr">
+                    <img src="images/erweima.png" alt="二维码登录">
+                </div>
+            </div>
+
+            <div class="split"></div>
+
+            <div class="right">
+                <div class="tabs" role="tablist">
+                    <button class="tab" id="password-tab" data-target="password-panel" role="tab" aria-selected="false" aria-controls="password-panel">密码登录</button>
+                    <button class="tab active" id="sms-tab" data-target="sms-panel" role="tab" aria-selected="true" aria-controls="sms-panel">短信登录</button>
+                </div>
+
+                <form class="login-form active" id="sms-panel" action="#" method="post" role="tabpanel" aria-labelledby="sms-tab">
+                    <div class="field country">
+                        <select name="country" aria-label="country">
+                            <option value="86">0086</option>
+                        </select>
+                        <input type="tel" name="phone" placeholder="请输入手机号">
+                    </div>
+
+                    <div class="field verify">
+                        <input type="text" name="code" placeholder="请输入图形验证码">
+                        <div class="captcha-box" title="点击换一张">
+                            <span class="captcha-text">ABCD</span>
+                            <button type="button" class="captcha-refresh" aria-label="刷新验证码">换一张</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-login" type="submit">登录</button>
+
+                    <div class="socials">
+                            <a href="#" class="social">
+                                <img src="images/iconfonts/weixin.png" alt="微信">
+                                <span>微信登录</span>
+                            </a>
+                            <span class="sep">|</span>
+                            <a href="#" class="social">
+                                <img src="images/iconfonts/icon_QQ.png" alt="QQ">
+                                <span>QQ登录</span>
+                            </a>
+                            <span class="sep">|</span>
+                            <a href="#" class="forgot">忘记密码</a>
+                            <span class="sep">|</span>
+                            <a href="register.html" class="register">立即注册</a>
+                    </div>
+                </form>
+
+                <form class="login-form" id="password-panel" action="#" method="post" role="tabpanel" aria-labelledby="password-tab">
+                    <div class="field single">
+                        <input type="text" name="username" placeholder="请输入手机号或邮箱">
+                    </div>
+                    <div class="field single">
+                        <input type="password" name="password" placeholder="请输入密码">
+                    </div>
+
+                    <button class="btn-login" type="submit">登录</button>
+
+                    <div class="socials">
+                            <a href="#" class="social">
+                                <img src="images/iconfonts/weixin.png" alt="微信">
+                                <span>微信登录</span>
+                            </a>
+                            <span class="sep">|</span>
+                            <a href="#" class="social">
+                                <img src="images/iconfonts/icon_QQ.png" alt="QQ">
+                                <span>QQ登录</span>
+                            </a>
+                            <span class="sep">|</span>
+                            <a href="#" class="forgot">忘记密码</a>
+                            <span class="sep">|</span>
+                            <a href="register.html" class="register">立即注册</a>
+                    </div>
+                </form>
+            </div>
+            <div class="footer">
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 统一侧边栏 -->
+    <div class="fixedtool sidebar">
+        <ul>
+            <li class="ft-item sb-home"><span class="icon"></span><span class="label">首页</span></li>
+            <li class="ft-item sb-cart"><span class="icon"></span><span class="label">购物车</span><span class="badge" style="display:none;">0</span></li>
+            <li class="ft-item sb-user"><span class="icon"></span><span class="label">我的</span></li>
+            <li class="ft-item sb-service"><span class="icon"></span><span class="label">客服</span></li>
+            <li class="ft-item sb-mobile"><span class="icon"></span><span class="label">手机查看</span></li>
+            <li class="ft-item sb-feedback"><span class="icon"></span><span class="label">反馈</span></li>
+            <li class="ft-item sb-plugin"><span class="icon"></span><span class="label">插件版</span></li>
+            <li class="ft-item sb-top"><span class="icon"></span><span class="label">回顶部</span></li>
+            <li class="ft-item sb-collapse"><span class="icon"></span><span class="label">收起</span></li>
+        </ul>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <nav class="footer-links">
+                <a href="#">关于我们</a>
+                <span class="sep">|</span>
+                <a href="#">联系我们</a>
+                <span class="sep">|</span>
+                <a href="#">人才招聘</a>
+                <span class="sep">|</span>
+                <a href="#">商家入驻</a>
+                <span class="sep">|</span>
+                <a href="#">广告服务</a>
+                <span class="sep">|</span>
+                <a href="#">手机京东</a>
+                <span class="sep">|</span>
+                <a href="#">友情链接</a>
+                <span class="sep">|</span>
+                <a href="#">销售联盟</a>
+                <span class="sep">|</span>
+                <a href="#">京东社区</a>
+                <span class="sep">|</span>
+                <a href="#">京东公益</a>
+                <span class="sep">|</span>
+                <a href="#">25216950309尹远晨</a>
+            </nav>
+            
+            <div class="copyright">Copyright © 2004-2025 京东JD.com 版权所有</div>
+        </div>
+    </footer>
+    <script src="./js/jquery.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

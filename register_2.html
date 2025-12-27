@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 填写账号信息</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/register2.css">
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="./js/register_flow.js"></script>
+</head>
+<body data-step="2">
+    <header class="header">
+        <div class="wrap">
+            <div class="logo">
+                <a href="./index.html"><img src="images/logo.png" alt="网站 Logo"></a>
+                <span class="welcome">欢迎注册</span>
+            </div>
+            <div class="advise"><a class="help-link" href="login.html">已有账号？ 请登录&gt;</a></div>
+            <nav class="quick-links">
+                <a href="./cart.html">购物车</a>
+                <a href="./order.html">我的订单</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="register-page">
+        <div class="register-wrap">
+            <div class="steps">
+                <div class="step"><span style="background:#2fb02f;color:#fff;border-color:#2fb02f;">✔</span><p>验证手机号</p></div>
+                <div class="dots"></div>
+                <div class="step active"><span>2</span><p>填写账号信息</p></div>
+                <div class="dots"></div>
+                <div class="step"><span>3</span><p>注册成功</p></div>
+            </div>
+
+            <div class="center-col">
+                <div class="verify-msg" aria-live="polite"></div>
+                <form class="reg-form" action="#" method="post" onsubmit="return false;">
+                    <div class="reg-field">
+                        <label>账号名</label>
+                        <input type="text" name="username" placeholder="账号唯一标识，可用来登录">
+                        <div class="field-hint" id="hint-username"></div>
+                    </div>
+
+                    <div class="reg-field">
+                        <label>设置密码</label>
+                        <input type="password" name="password" placeholder="建议使用两种或两种以上字符组合">
+                        <div class="pwd-strength" id="pwdStrength" aria-live="polite">
+                            <div class="bars">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                            <span class="level">弱</span>
+                        </div>
+                        <div class="field-hint" id="hint-password"></div>
+                    </div>
+
+                    <div class="reg-field">
+                        <label>确认密码</label>
+                        <input type="password" name="confirm" placeholder="请再次输入密码">
+                        <!-- 眼睛按钮：使用icon显示/隐藏 -->
+                        <button type="button" class="eye-btn" aria-label="显示/隐藏确认密码" aria-pressed="false"><span class="eye-icon closed" aria-hidden="true"></span></button>
+                        <div class="field-hint" id="hint-confirm"></div>
+                    </div>
+
+                    <div class="reg-field">
+                        <label>邮箱验证</label>
+                        <input type="email" name="email" placeholder="请输入邮箱">
+                        <div class="field-hint" id="hint-email"></div>
+                    </div>
+
+                    <div class="reg-field">
+                        <label>图片验证码</label>
+                        <div class="email-row captcha-row">
+                            <input type="text" name="captcha" placeholder="请输入图片中的验证码">
+                            <div class="captcha-box">
+                                <canvas id="captchaCanvas" width="120" height="44" aria-label="验证码图片"></canvas>
+                                <button type="button" class="code-btn" id="refreshCaptcha">换一张</button>
+                            </div>
+                        </div>
+                        <div class="field-hint" id="hint-captcha"></div>
+                    </div>
+
+                    <div style="margin-top:12px;">
+                        <button type="button" class="submit-big" id="finishRegister">立即注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- 统一侧边栏 -->
+    <!-- <div class="fixedtool sidebar">
+        <ul>
+            <li class="ft-item sb-home"><span class="icon"></span><span class="label">首页</span></li>
+            <li class="ft-item sb-cart"><span class="icon"></span><span class="label">购物车</span><span class="badge" style="display:none;">0</span></li>
+            <li class="ft-item sb-user"><span class="icon"></span><span class="label">我的</span></li>
+            <li class="ft-item sb-service"><span class="icon"></span><span class="label">客服</span></li>
+            <li class="ft-item sb-mobile"><span class="icon"></span><span class="label">手机查看</span></li>
+            <li class="ft-item sb-feedback"><span class="icon"></span><span class="label">反馈</span></li>
+            <li class="ft-item sb-plugin"><span class="icon"></span><span class="label">插件版</span></li>
+            <li class="ft-item sb-top"><span class="icon"></span><span class="label">回顶部</span></li>
+            <li class="ft-item sb-collapse"><span class="icon"></span><span class="label">收起</span></li>
+        </ul>
+    </div> -->
+
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <nav class="footer-links">
+                <a href="#">关于我们</a>
+                <span class="sep">|</span>
+                <a href="#">联系我们</a>
+                <span class="sep">|</span>
+                <a href="#">人才招聘</a>
+                <span class="sep">|</span>
+                <a href="#">商家入驻</a>
+                <span class="sep">|</span>
+                <a href="#">25216950309尹远晨</a>
+            </nav>
+            <div class="copyright">Copyright © 2004-2025 京东JD.com 版权所有</div>
+        </div>
+    </footer>
+
+     <script src="./js/register2.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

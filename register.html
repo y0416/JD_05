@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="./js/register_flow.js"></script>
+</head>
+<body data-step="1">
+<body>
+    <header class="header">
+        <div class="wrap">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="images/logo.png" alt="网站 Logo">
+                </a>
+                <span class="welcome">欢迎注册</span>
+            </div>
+            <div class="advise"><a class="help-link" href="login.html">已有账号？ 请登录&gt;</a></div>
+            <nav class="quick-links">
+                <a href="./cart.html">购物车</a>
+                <a href="./order.html">我的订单</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="register-page">
+        <div class="register-wrap">
+            <div class="steps">
+                <div class="step active"><span>1</span><p>验证手机号</p></div>
+                <div class="dots"></div>
+                <div class="step"><span>2</span><p>填写账号信息</p></div>
+                <div class="dots"></div>
+                <div class="step"><span>3</span><p>注册成功</p></div>
+            </div>
+
+            <form class="reg-form" action="#" method="post">
+                <div class="field country">
+                    <select name="country">
+                        <option value="86">中国 0086</option>
+                    </select>
+                    <input type="tel" name="phone" placeholder="请输入手机号">
+                </div>
+
+                <div class="info">验证完成后，你可以使用该手机号登录或找回密码</div>
+
+                <div class="verify-msg" aria-live="polite"></div>
+
+                <button type="button" class="btn-verify">点击按钮进行验证</button>
+
+                <button type="button" class="btn-agree">同意协议并继续</button>
+
+                <label class="agree">
+                    <input type="checkbox" name="agree">
+                    我已阅读并同意 <a href="#">《京东用户服务协议和隐私政策》</a>
+                </label>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- 统一侧边栏 -->
+    <!-- <div class="fixedtool sidebar">
+        <ul>
+            <li class="ft-item sb-home"><span class="icon"></span><span class="label">首页</span></li>
+            <li class="ft-item sb-cart"><span class="icon"></span><span class="label">购物车</span><span class="badge" style="display:none;">0</span></li>
+            <li class="ft-item sb-user"><span class="icon"></span><span class="label">我的</span></li>
+            <li class="ft-item sb-service"><span class="icon"></span><span class="label">客服</span></li>
+            <li class="ft-item sb-mobile"><span class="icon"></span><span class="label">手机查看</span></li>
+            <li class="ft-item sb-feedback"><span class="icon"></span><span class="label">反馈</span></li>
+            <li class="ft-item sb-plugin"><span class="icon"></span><span class="label">插件版</span></li>
+            <li class="ft-item sb-top"><span class="icon"></span><span class="label">回顶部</span></li>
+            <li class="ft-item sb-collapse"><span class="icon"></span><span class="label">收起</span></li>
+        </ul>
+    </div> -->
+
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <nav class="footer-links">
+                <a href="#">关于我们</a>
+                <span class="sep">|</span>
+                <a href="#">联系我们</a>
+                <span class="sep">|</span>
+                <a href="#">人才招聘</a>
+                <span class="sep">|</span>
+                <a href="#">商家入驻</a>
+                <span class="sep">|</span>
+                <a href="#">广告服务</a>
+                <span class="sep">|</span>
+                <a href="#">手机京东</a>
+                <span class="sep">|</span>
+                <a href="#">友情链接</a>
+                <span class="sep">|</span>
+                <a href="#">销售联盟</a>
+                <span class="sep">|</span>
+                <a href="#">京东社区</a>
+                <span class="sep">|</span>
+                <a href="#">京东公益</a>
+                <span class="sep">|</span>
+                <a href="#">25216950309尹远晨</a>
+            </nav>
+            <div class="copyright">Copyright © 2004-2025 京东JD.com 版权所有</div>
+        </div>
+    </footer>
+    <script src="./js/register.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
